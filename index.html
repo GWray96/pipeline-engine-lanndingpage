@@ -1,0 +1,1668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pipeline Engine — Consistent Lead Generation for Recruitment Agencies</title>
+<meta name="description" content="Pipeline Engine builds done-for-you lead generation systems for recruitment agency owners in the UK, US and Australia. 90-day guarantee. No long contracts.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0B0F14;
+    --ink-2: #141920;
+    --ink-3: #1C2430;
+    --amber: #E8A020;
+    --amber-light: #F5B840;
+    --amber-dim: rgba(232,160,32,0.12);
+    --white: #F7F4EE;
+    --grey: #8A95A0;
+    --grey-light: #B8C2CC;
+    --divider: rgba(255,255,255,0.07);
+    --font-head: 'Barlow Condensed', sans-serif;
+    --font-body: 'Barlow', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--ink);
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* ── UTILITY ── */
+  .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+  .container--narrow { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+  .amber { color: var(--amber); }
+  .section-label {
+    font-family: var(--font-head);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(11,15,20,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--divider);
+    transition: background 0.3s;
+  }
+
+  .nav-logo {
+    font-family: var(--font-head);
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    color: var(--white);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--amber); }
+
+  .nav-cta {
+    background: var(--amber);
+    color: var(--ink);
+    font-family: var(--font-head);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 10px 22px;
+    text-decoration: none;
+    border: 2px solid var(--amber);
+    transition: background 0.2s, color 0.2s;
+  }
+  .nav-cta:hover { background: transparent; color: var(--amber); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 0 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(232,160,32,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(232,160,32,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+  }
+
+  .hero-glow {
+    position: absolute;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(232,160,32,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+    text-align: center;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--amber-dim);
+    border: 1px solid rgba(232,160,32,0.25);
+    padding: 7px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--amber-light);
+    margin-bottom: 36px;
+    animation: fadeDown 0.7s ease both;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--amber);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  .hero-headline {
+    font-family: var(--font-head);
+    font-size: clamp(52px, 8vw, 96px);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    animation: fadeDown 0.7s 0.1s ease both;
+  }
+
+  .hero-headline .line-2 {
+    display: block;
+    color: var(--amber);
+    font-style: italic;
+  }
+
+  .hero-sub {
+    font-size: 19px;
+    color: var(--grey-light);
+    max-width: 620px;
+    margin: 0 auto 48px;
+    line-height: 1.6;
+    animation: fadeDown 0.7s 0.2s ease both;
+  }
+
+  .hero-ctas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    animation: fadeDown 0.7s 0.3s ease both;
+    margin-bottom: 28px;
+  }
+
+  .btn-primary {
+    background: var(--amber);
+    color: var(--ink);
+    font-family: var(--font-head);
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 16px 36px;
+    text-decoration: none;
+    border: 2px solid var(--amber);
+    transition: background 0.2s, color 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: transparent; color: var(--amber); transform: translateY(-2px); }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--white);
+    font-family: var(--font-head);
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 16px 36px;
+    text-decoration: none;
+    border: 2px solid rgba(255,255,255,0.2);
+    transition: border-color 0.2s, color 0.2s;
+    display: inline-block;
+  }
+  .btn-secondary:hover { border-color: var(--amber); color: var(--amber); }
+
+  .hero-guarantee {
+    font-size: 14px;
+    color: var(--grey);
+    animation: fadeDown 0.7s 0.4s ease both;
+  }
+  .hero-guarantee strong { color: var(--grey-light); }
+
+  .hero-markets {
+    margin-top: 72px;
+    padding-top: 32px;
+    border-top: 1px solid var(--divider);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    animation: fadeDown 0.7s 0.5s ease both;
+  }
+  .hero-markets span {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--grey);
+  }
+  .market-flag {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--grey-light);
+  }
+
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── SECTIONS SHARED ── */
+  section { padding: 96px 0; }
+
+  .section-head {
+    margin-bottom: 56px;
+  }
+
+  h2 {
+    font-family: var(--font-head);
+    font-size: clamp(40px, 5vw, 62px);
+    font-weight: 900;
+    line-height: 1.0;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+  }
+
+  h3 {
+    font-family: var(--font-head);
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  p { margin-bottom: 16px; }
+  p:last-child { margin-bottom: 0; }
+
+  /* ── PROBLEM SECTION ── */
+  #problem {
+    background: var(--ink-2);
+    border-top: 1px solid var(--divider);
+    border-bottom: 1px solid var(--divider);
+  }
+
+  .problem-intro {
+    font-size: 22px;
+    line-height: 1.55;
+    color: var(--grey-light);
+    max-width: 680px;
+    margin-bottom: 56px;
+  }
+
+  .problem-quote {
+    font-family: var(--font-head);
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 800;
+    line-height: 1.1;
+    text-transform: uppercase;
+    border-left: 4px solid var(--amber);
+    padding: 16px 0 16px 28px;
+    margin: 48px 0;
+    color: var(--white);
+  }
+
+  .problem-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2px;
+    margin-top: 56px;
+  }
+
+  .problem-card {
+    background: var(--ink-3);
+    padding: 32px;
+    border: 1px solid var(--divider);
+    position: relative;
+    overflow: hidden;
+  }
+  .problem-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--amber);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+  .problem-card:hover::before { transform: scaleX(1); }
+
+  .problem-card-num {
+    font-family: var(--font-head);
+    font-size: 56px;
+    font-weight: 900;
+    color: var(--amber-dim);
+    line-height: 1;
+    margin-bottom: 12px;
+    color: rgba(232,160,32,0.15);
+  }
+
+  /* ── WHY IT DOESN'T WORK ── */
+  #failures { background: var(--ink); }
+
+  .failures-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 40px;
+  }
+
+  .failures-table td {
+    padding: 24px 28px;
+    border-bottom: 1px solid var(--divider);
+    vertical-align: top;
+  }
+
+  .failures-table tr:last-child td { border-bottom: none; }
+
+  .failure-label {
+    font-family: var(--font-head);
+    font-size: 20px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--amber);
+    width: 180px;
+    white-space: nowrap;
+  }
+
+  .failures-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+  .bridge-box {
+    background: var(--amber-dim);
+    border: 1px solid rgba(232,160,32,0.25);
+    padding: 32px;
+    margin-top: 48px;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--white);
+    line-height: 1.6;
+  }
+
+  /* ── DIFFERENCE ── */
+  #difference {
+    background: var(--ink-2);
+    border-top: 1px solid var(--divider);
+    border-bottom: 1px solid var(--divider);
+  }
+
+  .diff-intro {
+    font-size: 20px;
+    line-height: 1.6;
+    color: var(--grey-light);
+    max-width: 640px;
+    margin-bottom: 56px;
+  }
+
+  .diff-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 2px;
+  }
+
+  .diff-card {
+    background: var(--ink-3);
+    padding: 36px 32px;
+    border: 1px solid var(--divider);
+    position: relative;
+  }
+
+  .diff-icon {
+    width: 48px; height: 48px;
+    background: var(--amber-dim);
+    border: 1px solid rgba(232,160,32,0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
+
+  /* ── HOW IT WORKS ── */
+  #how-it-works { background: var(--ink); }
+
+  .phases {
+    display: grid;
+    gap: 2px;
+    margin-top: 48px;
+  }
+
+  .phase {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 0;
+    border: 1px solid var(--divider);
+  }
+
+  .phase-num {
+    background: var(--amber);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 20px;
+    text-align: center;
+  }
+
+  .phase-num-big {
+    font-family: var(--font-head);
+    font-size: 52px;
+    font-weight: 900;
+    color: var(--ink);
+    line-height: 1;
+  }
+
+  .phase-num-label {
+    font-family: var(--font-head);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(11,15,20,0.7);
+    margin-top: 4px;
+  }
+
+  .phase-content {
+    background: var(--ink-2);
+    padding: 32px 36px;
+  }
+
+  .phase-timing {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .phase-title {
+    font-family: var(--font-head);
+    font-size: 24px;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .metaphor-box {
+    background: var(--ink-3);
+    border-left: 4px solid var(--amber);
+    padding: 28px 32px;
+    margin-top: 48px;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.6;
+  }
+
+  /* ── OFFER STACK ── */
+  #offer {
+    background: var(--ink-2);
+    border-top: 1px solid var(--divider);
+    border-bottom: 1px solid var(--divider);
+  }
+
+  .offer-stack {
+    margin: 40px 0;
+  }
+
+  .offer-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--divider);
+  }
+
+  .offer-item:last-child { border-bottom: none; }
+
+  .offer-check {
+    width: 28px; height: 28px;
+    flex-shrink: 0;
+    background: var(--amber-dim);
+    border: 1px solid rgba(232,160,32,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: var(--amber);
+    margin-top: 2px;
+  }
+
+  .offer-item-name {
+    flex: 1;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .offer-item-value {
+    font-family: var(--font-head);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--grey);
+    white-space: nowrap;
+  }
+
+  .offer-total {
+    background: var(--ink);
+    border: 1px solid var(--amber);
+    padding: 28px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 8px;
+  }
+
+  .offer-total-stack {
+    font-size: 15px;
+    color: var(--grey);
+  }
+  .offer-total-stack strong {
+    font-family: var(--font-head);
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--grey-light);
+    display: block;
+    text-decoration: line-through;
+    text-decoration-color: rgba(255,255,255,0.3);
+  }
+
+  .offer-price {
+    text-align: right;
+  }
+  .offer-price-label {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--amber);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .offer-price-amount {
+    font-family: var(--font-head);
+    font-size: 52px;
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .founders-note {
+    margin-top: 16px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--amber-light);
+    text-align: center;
+  }
+
+  /* ── GUARANTEE ── */
+  #guarantee {
+    background: var(--ink);
+    padding: 96px 0;
+  }
+
+  .guarantee-box {
+    background: linear-gradient(135deg, var(--ink-3) 0%, rgba(232,160,32,0.06) 100%);
+    border: 2px solid var(--amber);
+    padding: 56px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .guarantee-box::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 60% at 50% 0%, rgba(232,160,32,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .guarantee-icon {
+    width: 72px; height: 72px;
+    background: var(--amber);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    font-size: 32px;
+  }
+
+  .guarantee-headline {
+    font-family: var(--font-head);
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    line-height: 1.0;
+  }
+
+  .guarantee-body {
+    font-size: 18px;
+    color: var(--grey-light);
+    max-width: 620px;
+    margin: 0 auto 24px;
+    line-height: 1.65;
+  }
+
+  .guarantee-kicker {
+    font-family: var(--font-head);
+    font-size: 22px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--amber);
+    letter-spacing: 0.04em;
+  }
+
+  /* ── WHO IT'S FOR ── */
+  #who-its-for {
+    background: var(--ink-2);
+    border-top: 1px solid var(--divider);
+    border-bottom: 1px solid var(--divider);
+  }
+
+  .for-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-top: 48px;
+  }
+
+  .for-col {
+    background: var(--ink-3);
+    padding: 36px 32px;
+    border: 1px solid var(--divider);
+  }
+
+  .for-col-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .for-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .for-dot.green { background: #4CAF50; box-shadow: 0 0 8px rgba(76,175,80,0.5); }
+  .for-dot.red { background: #EF5350; box-shadow: 0 0 8px rgba(239,83,80,0.5); }
+
+  .for-col-title {
+    font-family: var(--font-head);
+    font-size: 20px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .for-list {
+    list-style: none;
+  }
+  .for-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--divider);
+    font-size: 15px;
+    color: var(--grey-light);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .for-list li:last-child { border-bottom: none; }
+  .for-list li::before {
+    content: '→';
+    color: var(--amber);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .for-list.red-list li::before { color: #EF5350; content: '✕'; }
+
+  .capacity-note {
+    margin-top: 32px;
+    background: var(--amber-dim);
+    border: 1px solid rgba(232,160,32,0.25);
+    padding: 20px 28px;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--amber-light);
+    text-align: center;
+  }
+
+  /* ── ABOUT ── */
+  #about { background: var(--ink); }
+
+  .about-inner {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .about-sidebar {
+    position: sticky;
+    top: 100px;
+  }
+
+  .about-avatar {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: var(--ink-3);
+    border: 1px solid var(--divider);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-avatar-inner {
+    font-family: var(--font-head);
+    font-size: 80px;
+    font-weight: 900;
+    color: rgba(232,160,32,0.15);
+    line-height: 1;
+  }
+
+  .about-avatar-name {
+    font-family: var(--font-head);
+    font-size: 22px;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .about-avatar-role {
+    font-size: 13px;
+    color: var(--grey);
+    font-weight: 500;
+  }
+
+  .about-content h2 { margin-bottom: 32px; }
+
+  .about-content p {
+    font-size: 17px;
+    color: var(--grey-light);
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+
+  .about-content strong { color: var(--white); font-weight: 600; }
+
+  .about-callout {
+    background: var(--amber-dim);
+    border-left: 4px solid var(--amber);
+    padding: 20px 24px;
+    margin: 32px 0;
+    font-size: 17px;
+    font-style: italic;
+    color: var(--white);
+    font-weight: 500;
+  }
+
+  .about-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 40px;
+  }
+
+  .about-stat {
+    background: var(--ink-2);
+    border: 1px solid var(--divider);
+    padding: 20px;
+    text-align: center;
+  }
+
+  .about-stat-num {
+    font-family: var(--font-head);
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--amber);
+    line-height: 1;
+    display: block;
+  }
+
+  .about-stat-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--grey);
+    margin-top: 4px;
+    display: block;
+  }
+
+  /* ── FAQ ── */
+  #faq {
+    background: var(--ink-2);
+    border-top: 1px solid var(--divider);
+    border-bottom: 1px solid var(--divider);
+  }
+
+  .faq-list { margin-top: 48px; }
+
+  .faq-item {
+    border-bottom: 1px solid var(--divider);
+    overflow: hidden;
+  }
+
+  .faq-item:first-child { border-top: 1px solid var(--divider); }
+
+  .faq-q {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 0;
+    cursor: pointer;
+    font-family: var(--font-head);
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    gap: 16px;
+    user-select: none;
+    transition: color 0.2s;
+  }
+  .faq-q:hover { color: var(--amber); }
+
+  .faq-arrow {
+    width: 32px; height: 32px;
+    flex-shrink: 0;
+    background: var(--amber-dim);
+    border: 1px solid rgba(232,160,32,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s, background 0.2s;
+  }
+
+  .faq-arrow svg {
+    width: 14px; height: 14px;
+    stroke: var(--amber);
+    fill: none;
+    transition: transform 0.3s;
+  }
+
+  .faq-item.open .faq-arrow { background: var(--amber); }
+  .faq-item.open .faq-arrow svg { stroke: var(--ink); transform: rotate(180deg); }
+
+  .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s;
+  }
+
+  .faq-item.open .faq-a { max-height: 400px; }
+
+  .faq-a-inner {
+    padding: 0 0 24px;
+    font-size: 16px;
+    color: var(--grey-light);
+    line-height: 1.7;
+    max-width: 700px;
+  }
+
+  /* ── FINAL CTA ── */
+  #cta {
+    background: var(--ink);
+    padding: 120px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-glow {
+    position: absolute;
+    bottom: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(232,160,32,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cta-inner { position: relative; z-index: 2; }
+
+  .cta-headline {
+    font-family: var(--font-head);
+    font-size: clamp(44px, 6vw, 72px);
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1.0;
+    margin-bottom: 24px;
+  }
+
+  .cta-sub {
+    font-size: 18px;
+    color: var(--grey-light);
+    max-width: 520px;
+    margin: 0 auto 48px;
+    line-height: 1.6;
+  }
+
+  .cta-small {
+    margin-top: 20px;
+    font-size: 14px;
+    color: var(--grey);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink-2);
+    border-top: 1px solid var(--divider);
+    padding: 36px 0;
+  }
+
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .footer-logo {
+    font-family: var(--font-head);
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    color: var(--white);
+    text-decoration: none;
+  }
+  .footer-logo span { color: var(--amber); }
+
+  .footer-links {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+  }
+
+  .footer-links a {
+    color: var(--grey);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--amber); }
+
+  .footer-copy {
+    font-size: 13px;
+    color: var(--grey);
+  }
+
+  /* ── SCROLL ANIMATIONS ── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    section { padding: 72px 0; }
+
+    .phase {
+      grid-template-columns: 72px 1fr;
+    }
+
+    .phase-num { padding: 20px 12px; }
+    .phase-num-big { font-size: 36px; }
+
+    .for-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .about-inner {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .about-sidebar { position: static; }
+    .about-avatar { aspect-ratio: unset; height: 160px; }
+
+    .about-stats { grid-template-columns: repeat(3,1fr); }
+
+    .failures-table, .failures-table tbody, .failures-table tr, .failures-table td {
+      display: block;
+    }
+    .failures-table td { padding: 12px 0; }
+    .failure-label { width: auto; margin-bottom: 6px; white-space: normal; }
+
+    .guarantee-box { padding: 36px 24px; }
+
+    .offer-total {
+      flex-direction: column;
+      text-align: center;
+    }
+    .offer-price { text-align: center; }
+
+    .phase-content { padding: 24px 20px; }
+
+    .hero-markets { gap: 20px; }
+    
+    .footer-inner { flex-direction: column; text-align: center; }
+    .footer-links { flex-wrap: wrap; justify-content: center; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-ctas { flex-direction: column; align-items: stretch; }
+    .btn-primary, .btn-secondary { text-align: center; }
+    .about-stats { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="#" class="nav-logo">Pipeline<span>Engine</span></a>
+  <a href="#cta" class="nav-cta">Book a Call</a>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Done-for-you lead generation · UK · US · Australia</div>
+    <h1 class="hero-headline">
+      Stop Being The Only<br>
+      <span class="line-2">Reason Leads Come In</span>
+    </h1>
+    <p class="hero-sub">
+      Your recruitment agency is brilliant at placing people. But if you stopped doing BD tomorrow, the pipeline would dry up by Friday. That's not a business. That's a job with a team attached.
+    </p>
+    <div class="hero-ctas">
+      <a href="#cta" class="btn-primary">Book a Free Discovery Call</a>
+      <a href="#how-it-works" class="btn-secondary">See How It Works</a>
+    </div>
+    <p class="hero-guarantee">
+      <strong>No long contracts. No vanity metrics.</strong> Just qualified client conversations — or I work for free.
+    </p>
+    <div class="hero-markets">
+      <span>Serving:</span>
+      <div class="market-flag">🇬🇧 United Kingdom</div>
+      <div class="market-flag">🇺🇸 United States</div>
+      <div class="market-flag">🇦🇺 Australia</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROBLEM ── -->
+<section id="problem">
+  <div class="container--narrow">
+    <span class="section-label">The Founder Trap</span>
+    <h2 class="fade-up">You built something real.<br>Now it can't run without you.</h2>
+
+    <p class="problem-intro fade-up">
+      Most recruitment agencies are brilliant at placing people. Terrible at winning new clients. You got here on hustle, relationships, and sheer bloody-mindedness. That's real. That counts. And it's also the exact thing that's capping your growth.
+    </p>
+
+    <div class="problem-quote fade-up">
+      "If you left your agency tomorrow, would qualified leads still come in?<br>
+      If not — you don't have a business. You have a job."
+    </div>
+
+    <p class="fade-up" style="color: var(--grey-light); font-size: 17px; line-height: 1.7;">
+      Here's what that looks like from the inside. Monday morning: two consultants with empty desks. Nobody says it out loud, but everyone in that room knows. You've got placements running, clients to call, a team to manage — and somewhere at the bottom of the pile, a BD task that keeps getting pushed.
+    </p>
+
+    <p class="fade-up" style="color: var(--grey-light); font-size: 17px; line-height: 1.7; margin-top: 16px;">
+      By the time you're at your desk thinking about marketing, there's nothing left in the tank. So it doesn't happen. And then it's Q3 and the bank balance looks nothing like Q2.
+    </p>
+
+    <div class="problem-grid" style="margin-top: 56px;">
+      <div class="problem-card fade-up">
+        <div class="problem-card-num">01</div>
+        <h3>The Feast-or-Famine Cycle</h3>
+        <p style="color: var(--grey-light); font-size: 15px;">It's not about effort. You're one of the hardest-working people in any room. The cycle is structural — BD only happens when the desk goes quiet, which is exactly when you're already behind.</p>
+      </div>
+      <div class="problem-card fade-up">
+        <div class="problem-card-num">02</div>
+        <h3>The Ceiling Is You</h3>
+        <p style="color: var(--grey-light); font-size: 15px;">Every client relationship lives in your phone. Every BD call goes through you. You want to hire another consultant, but can you guarantee their desk will be full? If not — the pipeline problem stops growth in its tracks.</p>
+      </div>
+      <div class="problem-card fade-up">
+        <div class="problem-card-num">03</div>
+        <h3>The Cost of Staying Stuck</h3>
+        <p style="color: var(--grey-light); font-size: 15px;">While you're running everything yourself, your competitors are building systems. Give it three years and the gap isn't effort — it's infrastructure. The window to build yours is now, not when things get harder.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHY IT DOESN'T WORK ── -->
+<section id="failures">
+  <div class="container--narrow">
+    <span class="section-label">Past Failures</span>
+    <h2 class="fade-up">You've already tried.<br>Here's why it didn't work.</h2>
+
+    <p class="fade-up" style="color: var(--grey-light); font-size: 18px; margin-top: 24px; margin-bottom: 8px;">
+      You're not reading this because you haven't tried to fix it. You've spent money. You've given it time. None of it stuck. That's not on you — it's structural.
+    </p>
+
+    <table class="failures-table fade-up">
+      <tbody>
+        <tr>
+          <td class="failure-label">Agencies</td>
+          <td style="color: var(--grey-light);">
+            Sold deliverables. Reported on impressions. Two months in you were getting weekly updates on reach and follower counts while your desks stayed empty. They were optimising for their case study, not your pipeline.
+          </td>
+        </tr>
+        <tr>
+          <td class="failure-label">Freelancers</td>
+          <td style="color: var(--grey-light);">
+            Fragmented. A copywriter here, an SEO person there, someone handling LinkedIn. Nothing talked to each other. No one owned the whole picture. You got parts of a system and none of the results.
+          </td>
+        </tr>
+        <tr>
+          <td class="failure-label">DIY</td>
+          <td style="color: var(--grey-light);">
+            Worked for about two weeks. Then a placement went sideways, or a big client needed attention, and the marketing task was the first thing dropped. No accountability. Too easy to deprioritise.
+          </td>
+        </tr>
+        <tr>
+          <td class="failure-label">AI Outreach</td>
+          <td style="color: var(--grey-light);">
+            Volume without relevance. You got replies — some of them even polite. But decision-makers in tech and engineering hiring know a mass sequence when they see one. Quality was low, and trust was lower.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="bridge-box fade-up">
+      Nobody built a joined-up system around what a qualified recruitment lead actually looks like.
+      That's the whole problem. And it's exactly what Pipeline Engine is built to fix.
+    </div>
+  </div>
+</section>
+
+<!-- ── THE DIFFERENCE ── -->
+<section id="difference">
+  <div class="container--narrow">
+    <span class="section-label">Why Pipeline Engine is Different</span>
+    <h2 class="fade-up">I'm not a marketer who<br>learned about recruitment.</h2>
+
+    <p class="diff-intro fade-up">
+      I'm a salesperson who learned marketing. That changes every single decision I make. A marketer asks: "What's the CTR?" I ask: "Would I want to take that call?" Very different filters. Very different outcomes.
+    </p>
+
+    <div class="diff-grid">
+      <div class="diff-card fade-up">
+        <div class="diff-icon">💬</div>
+        <h3>Conversations, Not Clicks</h3>
+        <p style="color: var(--grey-light); font-size: 15px; line-height: 1.65;">
+          I've been on a sales floor. I know what a qualified lead feels like — not just what it looks like on a dashboard. Every campaign is built backward from the conversation you want to have, not the metric that looks good in a report.
+        </p>
+      </div>
+      <div class="diff-card fade-up">
+        <div class="diff-icon">🎯</div>
+        <h3>5 Clients Maximum</h3>
+        <p style="color: var(--grey-light); font-size: 15px; line-height: 1.65;">
+          I work with a maximum of 5 clients at once. That's not a constraint — it's the point. You get focus, not a junior account manager and a templated strategy. Your business gets treated like the only one that matters, because it is.
+        </p>
+      </div>
+      <div class="diff-card fade-up">
+        <div class="diff-icon">🛡️</div>
+        <h3>90-Day Guarantee</h3>
+        <p style="color: var(--grey-light); font-size: 15px; line-height: 1.65;">
+          If the system doesn't generate qualified enquiries in 90 days, I work for free until it does. No small print. No wriggle room. That's not a marketing line — it's how confident I am in the system we build together.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── HOW IT WORKS ── -->
+<section id="how-it-works">
+  <div class="container--narrow">
+    <span class="section-label">The System</span>
+    <h2 class="fade-up">Three phases.<br>One working pipeline.</h2>
+    <p class="fade-up" style="color: var(--grey-light); font-size: 18px; margin-top: 20px; margin-bottom: 8px;">
+      Your job: attend calls. Everything else is handled.
+    </p>
+
+    <div class="phases fade-up">
+      <div class="phase">
+        <div class="phase-num">
+          <div class="phase-num-big">1</div>
+          <div class="phase-num-label">Foundation</div>
+        </div>
+        <div class="phase-content">
+          <span class="phase-timing">Days 1–7</span>
+          <div class="phase-title">Audit + Strategy Roadmap</div>
+          <p style="color: var(--grey-light); font-size: 15px;">
+            A 60-minute fast-start call. We extract everything needed — your ICP, your niche, your current BD situation. Within 7 days you have a full Pipeline Audit and a Strategy Roadmap delivered on a call. No guessing. No templated strategy. Built around your business specifically.
+          </p>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div class="phase-num">
+          <div class="phase-num-big">2</div>
+          <div class="phase-num-label">The Build</div>
+        </div>
+        <div class="phase-content">
+          <span class="phase-timing">Weeks 2–8</span>
+          <div class="phase-title">Inbound Funnel + Outbound Campaign</div>
+          <p style="color: var(--grey-light); font-size: 15px;">
+            Your inbound funnel is built: lead magnet, landing page, 90-day content strategy, nurture sequence. Your outbound cold email campaign is built and launched to your exact ICP. You have a live portal access throughout. Bi-weekly update calls already booked in your calendar.
+          </p>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div class="phase-num">
+          <div class="phase-num-big">3</div>
+          <div class="phase-num-label">Live</div>
+        </div>
+        <div class="phase-content">
+          <span class="phase-timing">Month 3+</span>
+          <div class="phase-title">System Live — Enquiries Flowing</div>
+          <p style="color: var(--grey-light); font-size: 15px;">
+            The full system is operational. Qualified client enquiries are flowing into your calendar. The subscription begins and keeps the engine running — content, ads, optimisation — managed every month so the pipeline compounds over time.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="metaphor-box fade-up">
+      <strong style="color: var(--amber); font-family: var(--font-head); font-size: 18px; text-transform: uppercase; letter-spacing: 0.04em;">The Vehicle and The Fuel</strong><br><br>
+      The system build is the vehicle. The monthly subscription is the fuel. One without the other doesn't move. Cancelling the subscription doesn't save money — it wastes the system you just invested in building.
+    </div>
+  </div>
+</section>
+
+<!-- ── OFFER STACK ── -->
+<section id="offer">
+  <div class="container--narrow">
+    <span class="section-label">The Offer</span>
+    <h2 class="fade-up">Everything you need.<br>Nothing you don't.</h2>
+
+    <div class="offer-stack fade-up">
+      <div class="offer-item">
+        <div class="offer-check">✓</div>
+        <div class="offer-item-name">
+          <strong>Full 90-day inbound + outbound system build</strong><br>
+          <span style="color: var(--grey); font-size: 14px;">The complete pipeline infrastructure, built and delivered</span>
+        </div>
+        <div class="offer-item-value">£3,500</div>
+      </div>
+      <div class="offer-item">
+        <div class="offer-check" style="background: rgba(232,160,32,0.2); border-color: rgba(232,160,32,0.4);">🎁</div>
+        <div class="offer-item-name">
+          <strong>First month of subscription included</strong><br>
+          <span style="color: var(--grey); font-size: 14px;">Fuel from day one — content, ads, and optimisation running immediately</span>
+        </div>
+        <div class="offer-item-value" style="color: var(--grey);">£1,500</div>
+      </div>
+      <div class="offer-item">
+        <div class="offer-check" style="background: rgba(232,160,32,0.2); border-color: rgba(232,160,32,0.4);">🎁</div>
+        <div class="offer-item-name">
+          <strong>Pipeline Audit — pre-sign marketing review</strong><br>
+          <span style="color: var(--grey); font-size: 14px;">Know exactly where your pipeline is leaking before we start</span>
+        </div>
+        <div class="offer-item-value" style="color: var(--grey);">£497</div>
+      </div>
+      <div class="offer-item">
+        <div class="offer-check" style="background: rgba(232,160,32,0.2); border-color: rgba(232,160,32,0.4);">🎁</div>
+        <div class="offer-item-name">
+          <strong>Warm Lead Closer</strong><br>
+          <span style="color: var(--grey); font-size: 14px;">Sales framework for converting inbound enquiries into signed clients</span>
+        </div>
+        <div class="offer-item-value" style="color: var(--grey);">£297</div>
+      </div>
+      <div class="offer-item">
+        <div class="offer-check" style="background: rgba(232,160,32,0.2); border-color: rgba(232,160,32,0.4);">🎁</div>
+        <div class="offer-item-name">
+          <strong>Recruitment Authority LinkedIn Playbook</strong><br>
+          <span style="color: var(--grey); font-size: 14px;">Position your agency as the go-to name in your niche</span>
+        </div>
+        <div class="offer-item-value" style="color: var(--grey);">£197</div>
+      </div>
+      <div class="offer-item">
+        <div class="offer-check" style="background: rgba(232,160,32,0.2); border-color: rgba(232,160,32,0.4);">🎁</div>
+        <div class="offer-item-name">
+          <strong>Competitor Intelligence Report</strong><br>
+          <span style="color: var(--grey); font-size: 14px;">Know exactly what you're up against and where the gaps are</span>
+        </div>
+        <div class="offer-item-value" style="color: var(--grey);">£247</div>
+      </div>
+      <div class="offer-item">
+        <div class="offer-check" style="background: rgba(232,160,32,0.2); border-color: rgba(232,160,32,0.4);">🎁</div>
+        <div class="offer-item-name">
+          <strong>48-Hour Fast Start Protocol</strong><br>
+          <span style="color: var(--grey); font-size: 14px;">Building begins within 48 hours of signing. No waiting around.</span>
+        </div>
+        <div class="offer-item-value" style="color: var(--grey);">£197</div>
+      </div>
+    </div>
+
+    <div class="offer-total fade-up">
+      <div class="offer-total-stack">
+        Total stack value<br>
+        <strong>£6,435</strong>
+      </div>
+      <div class="offer-price">
+        <span class="offer-price-label">Founders Price</span>
+        <span class="offer-price-amount">£3,500</span>
+      </div>
+    </div>
+
+    <p class="founders-note fade-up">⚡ Founders pricing is available to the first 5 clients only. Rate rises after that.</p>
+
+    <div style="text-align: center; margin-top: 36px;" class="fade-up">
+      <a href="#cta" class="btn-primary">Claim a Founders Spot</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── GUARANTEE ── -->
+<section id="guarantee">
+  <div class="container--narrow">
+    <div class="guarantee-box fade-up">
+      <div class="guarantee-icon">🛡️</div>
+      <h2 class="guarantee-headline">If it doesn't work,<br>I work for free.</h2>
+      <p class="guarantee-body">
+        If after 90 days you haven't received at least 3–5 qualified client enquiries into your calendar, I work an additional 30 days completely free of charge — no questions asked — until we hit that number together.
+      </p>
+      <p class="guarantee-kicker">I don't offer refunds. I offer results.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHO IT'S FOR ── -->
+<section id="who-its-for">
+  <div class="container--narrow">
+    <span class="section-label">Fit Check</span>
+    <h2 class="fade-up">This is for you.<br>Or it isn't. Let's be straight.</h2>
+
+    <div class="for-grid">
+      <div class="for-col fade-up">
+        <div class="for-col-head">
+          <div class="for-dot green"></div>
+          <div class="for-col-title">This is for you if...</div>
+        </div>
+        <ul class="for-list">
+          <li>You run a recruitment agency with 1–10 people</li>
+          <li>You're turning over £250k+ (or equivalent in USD/AUD)</li>
+          <li>You specialise in tech, engineering, cyber security, IT, or finance</li>
+          <li>You want a system, not a part-time marketing assistant</li>
+          <li>You're willing to show up for the calls and trust the process</li>
+          <li>You measure success in clients won, not impressions gained</li>
+        </ul>
+      </div>
+      <div class="for-col fade-up">
+        <div class="for-col-head">
+          <div class="for-dot red"></div>
+          <div class="for-col-title">This isn't for you if...</div>
+        </div>
+        <ul class="for-list red-list">
+          <li>You want to micromanage every piece of creative</li>
+          <li>You don't view marketing as an investment in growth</li>
+          <li>You're not prepared to engage with the process at all</li>
+          <li>You want a refund option instead of a results commitment</li>
+          <li>You need it to work next week, not in 90 days</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="capacity-note fade-up">
+      I work with a maximum of 5 clients at once. That's not a constraint — it's the point.<br>
+      <strong>If there's a spot available, you'll know it's worth protecting.</strong>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="container">
+    <div class="about-inner">
+      <div class="about-sidebar">
+        <div class="about-avatar">
+          <div class="about-avatar-inner">GW</div>
+        </div>
+        <div class="about-avatar-name">Gareth Wray</div>
+        <div class="about-avatar-role">Founder, Pipeline Engine</div>
+        <div class="about-stats">
+          <div class="about-stat">
+            <span class="about-stat-num">12+</span>
+            <span class="about-stat-label">Yrs in Sales</span>
+          </div>
+          <div class="about-stat">
+            <span class="about-stat-num">5</span>
+            <span class="about-stat-label">Max Clients</span>
+          </div>
+          <div class="about-stat">
+            <span class="about-stat-num">90</span>
+            <span class="about-stat-label">Day Guarantee</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-content">
+        <span class="section-label">About Gareth</span>
+        <h2 class="fade-up">Most marketing agencies have never sat on a sales floor.<br>I've never done anything else.</h2>
+
+        <div class="about-callout fade-up">
+          "I'm not a marketer who learned about recruitment. I'm a salesperson who learned marketing. That changes every decision I make."
+        </div>
+
+        <p class="fade-up">
+          Twelve years in sales. On the phones. Chasing leads, qualifying prospects, sitting next to agency owners doing BD at 6pm after a full day of delivery. I've been in those rooms. I know what the Monday morning huddle feels like when the desks are quiet.
+        </p>
+
+        <p class="fade-up">
+          <strong>That's why Pipeline Engine exists.</strong> Not because I got bored of marketing, or spotted a gap in the market on a spreadsheet. Because I kept watching brilliant recruiters lose to average ones — not because they weren't good enough, but because they had no system.
+        </p>
+
+        <p class="fade-up">
+          I built Pipeline Engine for the agency owner who's done everything right except build a pipeline that works without them. Tech, engineering, cyber, finance — I know your world, your buyers, and what a qualified lead in your space actually looks and feels like.
+        </p>
+
+        <p class="fade-up">
+          Outside of work: lifelong Man Utd supporter, which has taught me everything I need to know about watching something you believe in fail to perform because of structural problems at the top. Some lessons are painful. Some are useful. Most are both.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section id="faq">
+  <div class="container--narrow">
+    <span class="section-label">Questions</span>
+    <h2 class="fade-up">The things you're<br>actually wondering.</h2>
+
+    <div class="faq-list fade-up">
+
+      <div class="faq-item">
+        <div class="faq-q">
+          You're new — how do I know this works?
+          <div class="faq-arrow">
+            <svg viewBox="0 0 14 14"><polyline points="2,4 7,10 12,4"/></svg>
+          </div>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            I'm new to running an agency. I'm not new to sales, pipelines, or what makes a lead actually convert. Twelve years on a sales floor will do more for your marketing than any qualification. That kind of experience is rarer in this industry than you'd think. And if the system doesn't generate qualified enquiries in 90 days — I work for free. That's not a promise. That's a contract.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          I've been burned by agencies before.
+          <div class="faq-arrow">
+            <svg viewBox="0 0 14 14"><polyline points="2,4 7,10 12,4"/></svg>
+          </div>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            Most agencies sell packages, not outcomes. They report on what they can control — reach, impressions, follower counts — while you wait for clients. I build the strategy around your business first. Every decision is made with your pipeline in mind, not a case study for my website. The guarantee is there specifically for people who've been burned before. No financial risk. Either it works, or I work until it does.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          Can I actually afford this?
+          <div class="faq-arrow">
+            <svg viewBox="0 0 14 14"><polyline points="2,4 7,10 12,4"/></svg>
+          </div>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            One new retained client pays for the full year. Do the maths on your average placement fee. If the system generates even one new client relationship, the return isn't 2x or 3x — it's likely 5x to 10x on year one alone. The real question isn't whether you can afford it. It's whether you can afford another year of the same pipeline problem.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          What do I actually have to do?
+          <div class="faq-arrow">
+            <svg viewBox="0 0 14 14"><polyline points="2,4 7,10 12,4"/></svg>
+          </div>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            Attend the onboarding call. Show up for bi-weekly update calls (already pre-booked into your calendar at the start). Occasionally record a short video — editing is handled. That's it. No writing briefs, no chasing deliverables, no managing freelancers. The whole point is that you lead the business while we run the pipeline.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          What if my niche is too specific?
+          <div class="faq-arrow">
+            <svg viewBox="0 0 14 14"><polyline points="2,4 7,10 12,4"/></svg>
+          </div>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            Tech, engineering, cyber security, IT, finance recruitment. That's not a list of sectors I'm willing to work in — it's where I built my understanding of what a qualified lead looks like in the first place. Your niche is my default. The more specific you are, the better the outbound targeting. Specificity is an advantage here, not a problem.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          Do you work with agencies outside the UK?
+          <div class="faq-arrow">
+            <svg viewBox="0 0 14 14"><polyline points="2,4 7,10 12,4"/></svg>
+          </div>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            Yes. Pipeline Engine works with recruitment agency owners across the UK, US, and Australia. The sectors, the buyer profile, and the BD problems translate directly. If you're a tech or engineering recruitment agency in Sydney or Chicago dealing with the same founder-led BD problem — the system applies. Geography changes the targeting. The fundamentals don't.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── FINAL CTA ── -->
+<section id="cta">
+  <div class="cta-glow"></div>
+  <div class="container--narrow cta-inner">
+    <span class="section-label">Ready?</span>
+    <h2 class="cta-headline fade-up">Let's find out if<br>this is right for you.</h2>
+    <p class="cta-sub fade-up">
+      No pitch. No pressure. Just an honest conversation about your pipeline, what's not working, and whether Pipeline Engine is the right fit.
+    </p>
+    <div class="fade-up">
+      <a href="https://calendly.com" target="_blank" class="btn-primary" style="font-size: 19px; padding: 20px 48px;">Book a Free Discovery Call</a>
+    </div>
+    <p class="cta-small fade-up">30 minutes. No obligation. If it's not the right fit, I'll tell you.</p>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="container footer-inner">
+    <a href="#" class="footer-logo">Pipeline<span>Engine</span></a>
+    <div class="footer-links">
+      <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+      <a href="mailto:gareth@pipelineengine.com">gareth@pipelineengine.com</a>
+      <a href="pipelineengine.com">pipelineengine.com</a>
+    </div>
+    <div class="footer-copy">© 2025 Pipeline Engine. UK · US · Australia.</div>
+  </div>
+</footer>
+
+<script>
+  // ── SCROLL ANIMATIONS ──
+  const fadeEls = document.querySelectorAll('.fade-up');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        // Stagger siblings
+        const siblings = Array.from(entry.target.parentElement.querySelectorAll('.fade-up'));
+        const idx = siblings.indexOf(entry.target);
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, Math.min(idx * 80, 320));
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  fadeEls.forEach(el => observer.observe(el));
+
+  // ── FAQ ACCORDION ──
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // ── NAV SCROLL ──
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 60) {
+      nav.style.background = 'rgba(11,15,20,0.98)';
+    } else {
+      nav.style.background = 'rgba(11,15,20,0.92)';
+    }
+  });
+</script>
+</body>
+</html>
