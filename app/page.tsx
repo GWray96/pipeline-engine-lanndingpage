@@ -2,6 +2,7 @@ import Link from "next/link";
 import PageClient from "@/components/PageClient";
 
 const CAL_LINK = "https://calendar.app.google/btEvYthrFhSV3bCR7";
+const CALCULATOR_LINK = "https://pipeline-engine-calculator.vercel.app/";
 
 export default function Home() {
   return (
@@ -10,9 +11,26 @@ export default function Home() {
         <Link href="#" className="nav-logo">
           Pipeline<span>Engine</span>
         </Link>
-        <a href={CAL_LINK} target="_blank" rel="noopener noreferrer" className="nav-cta">
-          Book a Call
-        </a>
+        <div style={{ display: "flex", alignItems: "center", gap: "24px" }}>
+          <a
+            href={CALCULATOR_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              color: "var(--amber)",
+              fontSize: "14px",
+              fontWeight: 600,
+              letterSpacing: "0.05em",
+              textTransform: "uppercase",
+              textDecoration: "none",
+            }}
+          >
+            Free Assessment
+          </a>
+          <a href={CAL_LINK} target="_blank" rel="noopener noreferrer" className="nav-cta">
+            Book a Call
+          </a>
+        </div>
       </nav>
 
       <section id="hero">
@@ -38,6 +56,15 @@ export default function Home() {
             </a>
             <a href="#how-it-works" className="btn-secondary">
               See How It Works
+            </a>
+            <a
+              href={CALCULATOR_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-secondary"
+              style={{ borderColor: "rgba(232,160,32,0.4)", color: "var(--amber-light)" }}
+            >
+              Take the 3-Min Assessment
             </a>
           </div>
           <p className="hero-guarantee">
@@ -72,6 +99,34 @@ export default function Home() {
             come in?
             <br />
             If not — you don&apos;t have a business. You have a job.&quot;
+          </div>
+          <div
+            className="fade-up"
+            style={{
+              textAlign: "center",
+              marginBottom: "32px",
+            }}
+          >
+            <a
+              href={CALCULATOR_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "8px",
+                background: "var(--amber-dim)",
+                border: "1px solid rgba(232,160,32,0.3)",
+                padding: "14px 28px",
+                color: "var(--amber-light)",
+                fontWeight: 600,
+                textDecoration: "none",
+                fontSize: "15px",
+                letterSpacing: "0.04em",
+              }}
+            >
+              Find out your number — take the free Dependency Score assessment →
+            </a>
           </div>
           <p
             className="fade-up"
@@ -902,6 +957,9 @@ export default function Home() {
             Pipeline<span>Engine</span>
           </Link>
           <div className="footer-links">
+            <a href={CALCULATOR_LINK} target="_blank" rel="noopener noreferrer">
+              Free Assessment
+            </a>
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
               LinkedIn
             </a>
