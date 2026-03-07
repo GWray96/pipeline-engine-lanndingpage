@@ -54,9 +54,6 @@ export default function Home() {
             <a href={CAL_LINK} target="_blank" rel="noopener noreferrer" className="btn-primary">
               Book a Free Discovery Call
             </a>
-            <a href="#how-it-works" className="btn-secondary">
-              See How It Works
-            </a>
             <a
               href={CALCULATOR_LINK}
               target="_blank"
