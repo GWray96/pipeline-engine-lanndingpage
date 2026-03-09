@@ -25,7 +25,7 @@ export default function Home() {
               textDecoration: "none",
             }}
           >
-            Free Assessment
+            Get Your Pipeline Score →
           </a>
           <a href={CAL_LINK} target="_blank" rel="noopener noreferrer" className="nav-cta">
             Book a Call
@@ -61,7 +61,7 @@ export default function Home() {
               className="btn-secondary"
               style={{ borderColor: "rgba(232,160,32,0.4)", color: "var(--amber-light)" }}
             >
-              Take the 3-Min Assessment
+              Get Your Pipeline Score →
             </a>
           </div>
           <p className="hero-guarantee">
@@ -122,7 +122,7 @@ export default function Home() {
                 letterSpacing: "0.04em",
               }}
             >
-              Find out your number — take the free Dependency Score assessment →
+              Get Your Pipeline Score →
             </a>
           </div>
           <p
@@ -955,7 +955,7 @@ export default function Home() {
           </Link>
           <div className="footer-links">
             <a href={CALCULATOR_LINK} target="_blank" rel="noopener noreferrer">
-              Free Assessment
+              Get Your Pipeline Score →
             </a>
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
               LinkedIn
