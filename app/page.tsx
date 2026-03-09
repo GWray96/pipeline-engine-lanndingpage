@@ -2,7 +2,7 @@ import Link from "next/link";
 import PageClient from "@/components/PageClient";
 
 const CAL_LINK = "https://calendar.app.google/btEvYthrFhSV3bCR7";
-const CALCULATOR_LINK = "https://pipeline-engine-calculator.vercel.app/";
+const CALCULATOR_LINK = "https://calculator.thepipelineengine.com/";
 
 export default function Home() {
   return (
