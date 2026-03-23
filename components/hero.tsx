@@ -47,12 +47,12 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="text-4xl md:text-6xl lg:text-7xl font-bold text-text-primary leading-[1.1] tracking-tight mb-6"
         >
-          Qualified calls in your{" "}
-          <span className="text-accent">calendar</span>.
+          A complete B2B{" "}
+          <span className="text-accent">pipeline</span>.
           <br />
-          Every month.
+          Built, managed, optimised.
           <br />
-          <span className="text-text-muted">Without you lifting a finger.</span>
+          <span className="text-text-muted">You just take the calls.</span>
         </motion.h1>
 
         {/* Subheadline */}
@@ -62,8 +62,9 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-lg md:text-xl text-text-muted max-w-2xl mx-auto mb-10 leading-relaxed"
         >
-          In 90 days your calendar is filling with qualified conversations and
-          the business is growing without you chasing it. Then I keep that going.
+          In 90 days I build your full inbound and outbound system from the
+          ground up. Then I keep it running every month. The infrastructure,
+          the outreach, the content — all of it done for you.
         </motion.p>
 
         {/* CTAs */}

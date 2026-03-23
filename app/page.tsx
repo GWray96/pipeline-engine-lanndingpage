@@ -2,9 +2,9 @@ import Nav from "@/components/nav";
 import Hero from "@/components/hero";
 import Credibility from "@/components/credibility";
 import Problem from "@/components/problem";
+import SystemOverview from "@/components/system-overview";
 import HowItWorks from "@/components/how-it-works";
 import Offer from "@/components/offer";
-import Pricing from "@/components/pricing";
 import Guarantee from "@/components/guarantee";
 import About from "@/components/about";
 import FAQ from "@/components/faq";
@@ -19,11 +19,11 @@ export default function Home() {
         <Hero />
         <Credibility />
         <Problem />
-        <About />
         <HowItWorks />
+        <SystemOverview />
         <Offer />
-        <Pricing />
         <Guarantee />
+        <About />
         <FAQ />
         <CTA />
       </main>

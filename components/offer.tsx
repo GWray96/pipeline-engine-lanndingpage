@@ -1,44 +1,68 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle, ChevronDown } from "lucide-react";
 
 const phase1 = [
-  "The right people targeted precisely. No wasted effort on companies that will never buy.",
-  "Your offer positioned to resonate, so the right prospects say yes rather than ask for more time.",
-  "Full pipeline visibility. You always know what's in the funnel and what's moving.",
-  "Every result tracked from day one. You always know what's working and what isn't.",
-  "A high-value resource that turns cold visitors into warm leads automatically.",
-  "A page built to turn interested visitors into booked calls, not just look good.",
-  "Content that brings the right people to you and keeps working long after it's published.",
-  "Warm prospects automatically nudged toward a conversation, without you lifting a finger.",
-  "Your LinkedIn working as a credibility asset, so prospects check you out and like what they see.",
-  "Your first 250 qualified targets ready to contact from day one.",
-  "Outreach that opens real conversations, not spam that gets deleted.",
-  "LinkedIn messages that get replies from decision-makers.",
-  "No lead falls through the cracks. Every prospect followed up automatically.",
-  "Everything you need to close conversations confidently. You're never caught off guard.",
-  "More enquiries from the traffic you already have, without spending more on ads.",
+  "Ideal customer profile defined and built into every part of the system.",
+  "Offer positioning refined so your messaging speaks to the right buyer, not everyone.",
+  "CRM configured and pipeline stages set up. Full visibility from day one.",
+  "Tracking in place from the start. Every channel measured, every lead accounted for.",
+  "Lead magnet built and live — designed to turn cold visitors into warm contacts.",
+  "Landing page built to convert interested visitors into booked calls.",
+  "SEO content and LinkedIn presence built to attract the right people over time.",
+  "Email nurture sequence live — automated follow-up for every lead that enters the system.",
+  "LinkedIn profile optimised as a credibility asset for when prospects look you up.",
+  "250 qualified target accounts identified and ready for outreach from day one.",
+  "Cold outreach sequences written, tested, and sent to qualified targets.",
+  "LinkedIn outreach sequences crafted for B2B decision-makers.",
+  "Follow-up automation in place. No lead drops out of the sequence uncontacted.",
+  "Sales conversation framework built. You know what to say when someone books.",
+  "CRO review of your existing pages — more of your current traffic converting.",
   "Full handover on day 90. You own it, you understand it, and it runs with or without us.",
 ];
 
 const phase2 = [
-  "Your authority keeps building. Fresh content every month attracting the right people.",
-  "The outreach list never runs dry. New qualified targets added every month.",
-  "Active conversations happening every week. Consistently, not in bursts.",
-  "More of your traffic converting to enquiries, incrementally better every month.",
-  "Paid traffic sending the right people to a page built to convert them.",
-  "Ad messaging that improves with every test. Lower cost, better quality leads over time.",
-  "The next 30 days planned and aligned. You know exactly what's happening and why.",
-  "A marketing brain on call whenever you need one. No guesswork, no second-guessing.",
-  "Clear results every month: what worked, what didn't, and what's next.",
+  "Monthly content published — SEO articles, LinkedIn posts, or both. Agreed upfront.",
+  "New qualified target accounts added to the outreach list every month.",
+  "Outbound sequences running every week, consistently reaching new prospects.",
+  "Conversion rate optimisation — iterative improvements each month based on real data.",
+  "Paid ads managed and sending qualified traffic to pages built to convert them.",
+  "Ad creative tested and refined every month. Budget optimised against what's working.",
+  "Monthly strategy call — the next 30 days planned and aligned before anything runs.",
+  "Direct access to me throughout. Questions answered, decisions made together.",
+  "Monthly report: what ran, what changed, what's next. No mystery, no fluff.",
 ];
 
-const MOBILE_SHOW_COUNT = 6;
+const SHOW_COUNT = 5;
+
+function ItemList({ items, expanded }: { items: string[]; expanded: boolean }) {
+  const visible = expanded ? items : items.slice(0, SHOW_COUNT);
+  return (
+    <ul className="space-y-2.5">
+      <AnimatePresence initial={false}>
+        {visible.map((item) => (
+          <motion.li
+            key={item}
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.25 }}
+            className="flex items-start gap-2.5 overflow-hidden"
+          >
+            <CheckCircle size={14} className="text-green mt-0.5 flex-shrink-0" />
+            <span className="text-sm text-text-muted">{item}</span>
+          </motion.li>
+        ))}
+      </AnimatePresence>
+    </ul>
+  );
+}
 
 export default function Offer() {
   const [phase1Expanded, setPhase1Expanded] = useState(false);
+  const [phase2Expanded, setPhase2Expanded] = useState(false);
 
   return (
     <section id="included" className="py-24 px-6">
@@ -79,37 +103,19 @@ export default function Offer() {
                 <h3 className="text-2xl font-bold text-text-primary">
                   The Build
                 </h3>
-                <p className="text-text-muted text-sm mt-1">90 days. One-off.</p>
-              </div>
-              <div className="text-right">
-                <div className="text-2xl font-bold text-text-primary">£3,500</div>
-                <div className="text-xs text-text-muted">or 3 × £1,200</div>
+                <p className="text-text-muted text-sm mt-1">90-day build.</p>
               </div>
             </div>
 
-            {/* Desktop: show all. Mobile: show first 6, expand on tap */}
-            <ul className="space-y-2.5">
-              {phase1.map((item, i) => (
-                <li
-                  key={item}
-                  className={`flex items-start gap-2.5 ${
-                    !phase1Expanded && i >= MOBILE_SHOW_COUNT ? "hidden md:flex" : "flex"
-                  }`}
-                >
-                  <CheckCircle size={14} className="text-green mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-text-muted">{item}</span>
-                </li>
-              ))}
-            </ul>
+            <ItemList items={phase1} expanded={phase1Expanded} />
 
-            {/* Mobile expand toggle */}
             <button
-              className="md:hidden flex items-center gap-1.5 text-xs text-accent mt-4 hover:text-text-primary transition-colors"
+              className="flex items-center gap-1.5 text-xs text-accent mt-4 hover:text-text-primary transition-colors"
               onClick={() => setPhase1Expanded(!phase1Expanded)}
             >
               <ChevronDown
                 size={14}
-                className={`transition-transform ${phase1Expanded ? "rotate-180" : ""}`}
+                className={`transition-transform duration-300 ${phase1Expanded ? "rotate-180" : ""}`}
               />
               {phase1Expanded
                 ? "Show less"
@@ -118,9 +124,6 @@ export default function Offer() {
 
             <div className="mt-6 pt-6 border-t border-border">
               <p className="text-xs text-text-muted">
-                <span className="text-text-primary font-medium">
-                  Standalone value: £9,000.
-                </span>{" "}
                 Every asset, sequence, and system is yours to keep, regardless
                 of what happens after day 90.
               </p>
@@ -149,26 +152,27 @@ export default function Offer() {
                   Monthly. No lock-in.
                 </p>
               </div>
-              <div className="text-right">
-                <div className="text-2xl font-bold text-text-primary">£1,500</div>
-                <div className="text-xs text-text-muted">/month</div>
-              </div>
             </div>
 
-            <ul className="relative space-y-2.5">
-              {phase2.map((item) => (
-                <li key={item} className="flex items-start gap-2.5">
-                  <CheckCircle size={14} className="text-green mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-text-muted">{item}</span>
-                </li>
-              ))}
-            </ul>
+            <div className="relative">
+              <ItemList items={phase2} expanded={phase2Expanded} />
+
+              <button
+                className="flex items-center gap-1.5 text-xs text-green mt-4 hover:text-text-primary transition-colors"
+                onClick={() => setPhase2Expanded(!phase2Expanded)}
+              >
+                <ChevronDown
+                  size={14}
+                  className={`transition-transform duration-300 ${phase2Expanded ? "rotate-180" : ""}`}
+                />
+                {phase2Expanded
+                  ? "Show less"
+                  : `Show all ${phase2.length} components`}
+              </button>
+            </div>
 
             <div className="relative mt-6 pt-6 border-t border-border">
               <p className="text-xs text-text-muted">
-                <span className="text-text-primary font-medium">
-                  Standalone value: £4,000/month.
-                </span>{" "}
                 Ad spend is separate, budget agreed with you upfront. Cancel
                 any month with 30 days&apos; notice.
               </p>

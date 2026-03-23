@@ -23,7 +23,6 @@ export default function Footer() {
               {[
                 { label: "How it works", href: "#how-it-works" },
                 { label: "What's included", href: "#included" },
-                { label: "Pricing", href: "#pricing" },
                 { label: "About", href: "#about" },
                 { label: "Book a call", href: "#contact" },
               ].map((l) => (

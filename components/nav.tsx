@@ -6,7 +6,6 @@ import { Menu, X } from "lucide-react";
 const links = [
   { label: "How it works", href: "#how-it-works" },
   { label: "What's included", href: "#included" },
-  { label: "Pricing", href: "#pricing" },
   { label: "About", href: "#about" },
 ];
 
