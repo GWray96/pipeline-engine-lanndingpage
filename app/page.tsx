@@ -2,6 +2,7 @@ import Nav from "@/components/nav";
 import Hero from "@/components/hero";
 import Credibility from "@/components/credibility";
 import Problem from "@/components/problem";
+import CalculatorCTA from "@/components/calculator-cta";
 import SystemOverview from "@/components/system-overview";
 import HowItWorks from "@/components/how-it-works";
 import Offer from "@/components/offer";
@@ -19,6 +20,7 @@ export default function Home() {
         <Hero />
         <Credibility />
         <Problem />
+        <CalculatorCTA />
         <HowItWorks />
         <SystemOverview />
         <Offer />

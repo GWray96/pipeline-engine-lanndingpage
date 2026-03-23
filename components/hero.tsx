@@ -82,10 +82,12 @@ export default function Hero() {
             <ArrowRight size={16} />
           </a>
           <a
-            href="#how-it-works"
+            href="https://calculator.thepipelineengine.com"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg border border-border text-text-muted hover:text-text-primary hover:border-accent/50 transition-all text-sm"
           >
-            See what you get
+            Calculate my pipeline gap
           </a>
         </motion.div>
 
