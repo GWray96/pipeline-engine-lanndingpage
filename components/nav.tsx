@@ -6,9 +6,10 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
 const links = [
-  { label: "How it works", href: "/how-it-works" },
+  { label: "Services", href: "/services" },
   { label: "Resources", href: "/resources" },
   { label: "Blog", href: "/blog" },
+  { label: "About", href: "/about" },
 ];
 
 export default function Nav() {
@@ -22,7 +23,6 @@ export default function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Close mobile menu on route change
   useEffect(() => {
     setOpen(false);
   }, [pathname]);
@@ -37,7 +37,7 @@ export default function Nav() {
     >
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group">
+        <Link href="/" className="flex items-center gap-2">
           <span className="text-accent font-bold text-lg tracking-tight">
             The Pipeline Engine
           </span>
@@ -50,7 +50,7 @@ export default function Nav() {
               key={l.href}
               href={l.href}
               className={`text-sm transition-colors ${
-                pathname === l.href
+                pathname.startsWith(l.href)
                   ? "text-text-primary"
                   : "text-text-muted hover:text-text-primary"
               }`}
@@ -89,7 +89,7 @@ export default function Nav() {
                 key={l.href}
                 href={l.href}
                 className={`text-sm transition-colors py-1 ${
-                  pathname === l.href
+                  pathname.startsWith(l.href)
                     ? "text-text-primary"
                     : "text-text-muted hover:text-text-primary"
                 }`}
