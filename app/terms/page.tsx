@@ -1,6 +1,3 @@
-import Nav from "@/components/nav";
-import Footer from "@/components/footer";
-
 export const metadata = {
   title: "Terms of Service | Pipeline Engine",
   description: "Terms and conditions for Pipeline Engine services.",
@@ -9,7 +6,6 @@ export const metadata = {
 export default function Terms() {
   return (
     <>
-      <Nav />
       <main className="pt-24 pb-24 px-6">
         <div className="max-w-3xl mx-auto">
           <div className="mb-12">
@@ -207,7 +203,6 @@ export default function Terms() {
           </div>
         </div>
       </main>
-      <Footer />
     </>
   );
 }

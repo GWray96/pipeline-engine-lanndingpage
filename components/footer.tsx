@@ -1,10 +1,12 @@
+import Link from "next/link";
+
 export default function Footer() {
   return (
     <footer className="border-t border-border bg-bg-base">
       <div className="max-w-6xl mx-auto px-6 py-12">
-        <div className="grid md:grid-cols-3 gap-8 mb-10">
+        <div className="grid md:grid-cols-4 gap-8 mb-10">
           {/* Brand */}
-          <div>
+          <div className="md:col-span-1">
             <div className="text-accent font-bold text-lg mb-3">
               The Pipeline Engine
             </div>
@@ -14,21 +16,57 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Links */}
+          {/* Navigate */}
           <div>
             <p className="text-xs text-text-muted uppercase tracking-widest mb-4">
               Navigate
             </p>
             <ul className="space-y-2">
               {[
-                { label: "How it works", href: "#how-it-works" },
-                { label: "What's included", href: "#included" },
-                { label: "About", href: "#about" },
-                { label: "Book a call", href: "#contact" },
+                { label: "How it works", href: "/how-it-works" },
+                { label: "Resources", href: "/resources" },
+                { label: "Blog", href: "/blog" },
+                { label: "About", href: "/about" },
+                { label: "Book a call", href: "https://cal.com/gareth-wray/30min" },
+              ].map((l) => (
+                <li key={l.label}>
+                  {l.href.startsWith("http") ? (
+                    <a
+                      href={l.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-text-muted hover:text-text-primary transition-colors"
+                    >
+                      {l.label}
+                    </a>
+                  ) : (
+                    <Link
+                      href={l.href}
+                      className="text-xs text-text-muted hover:text-text-primary transition-colors"
+                    >
+                      {l.label}
+                    </Link>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Free Tools */}
+          <div>
+            <p className="text-xs text-text-muted uppercase tracking-widest mb-4">
+              Free Tools
+            </p>
+            <ul className="space-y-2">
+              {[
+                { label: "Pipeline Gap Calculator", href: "https://calculator.thepipelineengine.com" },
+                { label: "Pipeline Health Score", href: "https://audit.thepipelineengine.com" },
               ].map((l) => (
                 <li key={l.label}>
                   <a
                     href={l.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-xs text-text-muted hover:text-text-primary transition-colors"
                   >
                     {l.label}
@@ -81,12 +119,12 @@ export default function Footer() {
             © {new Date().getFullYear()} My OPMA Ltd. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            <a href="/privacy" className="text-xs text-text-muted hover:text-text-primary transition-colors">
+            <Link href="/privacy" className="text-xs text-text-muted hover:text-text-primary transition-colors">
               Privacy Policy
-            </a>
-            <a href="/terms" className="text-xs text-text-muted hover:text-text-primary transition-colors">
+            </Link>
+            <Link href="/terms" className="text-xs text-text-muted hover:text-text-primary transition-colors">
               Terms
-            </a>
+            </Link>
           </div>
         </div>
       </div>
