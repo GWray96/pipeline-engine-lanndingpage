@@ -36,7 +36,7 @@ const phases = [
     price: "£1,500/mo",
     period: "no lock-in",
     headline: "Fuelled every month",
-    body: "Monthly execution to keep the system running. New prospects, outbound sequences, content, ads — managed so qualified calls keep arriving without you lifting a finger.",
+    body: "Monthly execution to keep the system active. New prospects researched, outbound running, content published, ads managed — qualified conversations keep arriving without you touching it.",
     color: "text-green",
     border: "border-green/20",
     featured: true,
@@ -101,7 +101,7 @@ export default function Home() {
             className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-border bg-bg-card text-xs text-text-muted mb-8"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-green animate-pulse" />
-            Done-for-you B2B lead generation — built in 90 days
+            B2B lead generation — built for you, owned by you
           </motion.div>
 
           <motion.h1
@@ -110,11 +110,11 @@ export default function Home() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-4xl md:text-6xl lg:text-7xl font-bold text-text-primary leading-[1.1] tracking-tight mb-6"
           >
-            Qualified calls in your calendar.
+            A B2B pipeline system.
             <br />
-            <span className="text-accent">Every month.</span>
+            <span className="text-accent">Built for you.</span>
             <br />
-            <span className="text-text-muted">Without you lifting a finger.</span>
+            <span className="text-text-muted">Owned by you.</span>
           </motion.h1>
 
           <motion.p
@@ -123,8 +123,9 @@ export default function Home() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-lg md:text-xl text-text-muted max-w-2xl mx-auto mb-10 leading-relaxed"
           >
-            The Pipeline Engine builds your complete B2B lead generation system in 90 days —
-            then fuels it every month so the pipeline runs whether you&apos;re selling or not.
+            I build your complete inbound and outbound lead generation system in 90 days —
+            CRM, outreach, content, landing pages — then run it every month so qualified
+            conversations arrive consistently, whether you&apos;re selling or delivering.
           </motion.p>
 
           <motion.div
@@ -181,11 +182,11 @@ export default function Home() {
           >
             <p className="text-xs text-accent uppercase tracking-widest mb-3">The model</p>
             <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
-              Build once. Fuel monthly. Compound forever.
+              Two phases. One system. Yours to keep.
             </h2>
             <p className="text-text-muted max-w-xl mx-auto">
-              A done-for-you system that generates pipeline whether you&apos;re
-              working on sales or delivering to clients.
+              Phase 1 builds the infrastructure. Phase 2 keeps it running.
+              Every asset is yours from day one — regardless of what you decide about Phase 2.
             </p>
           </motion.div>
 
@@ -439,14 +440,15 @@ export default function Home() {
             transition={{ duration: 0.6 }}
           >
             <p className="text-xs text-accent uppercase tracking-widest mb-4">
-              Ready to build your pipeline?
+              Next step
             </p>
             <h2 className="text-3xl md:text-5xl font-bold text-text-primary mb-6 leading-tight">
-              Let&apos;s talk.
+              If this sounds like the right fit, book a call.
             </h2>
             <p className="text-text-muted mb-8 max-w-lg mx-auto leading-relaxed">
-              Book a free 30-minute discovery call. No pitch, no pressure. We&apos;ll look at
-              your pipeline situation and whether The Pipeline Engine is the right fit.
+              A free 30-minute conversation. We&apos;ll look at where your pipeline is, where
+              it needs to be, and whether building a system makes sense for your business right now.
+              No pitch. If it&apos;s not the right fit, I&apos;ll say so.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a

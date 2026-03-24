@@ -56,9 +56,9 @@ export default function ResourcesPage() {
   return (
     <>
       <PageHero
-        eyebrow="Free Tools"
-        title="Know your numbers before you build anything."
-        subtitle="Two free tools to diagnose your current pipeline before you invest in fixing it. Takes 5 minutes. Sends results to your email."
+        eyebrow="Free tools"
+        title="Diagnose before you build."
+        subtitle="Two free tools that tell you where your pipeline stands — before you spend anything fixing it. Takes about 5 minutes. Results emailed to you."
       />
 
       <main className="pb-24">
@@ -121,7 +121,7 @@ export default function ResourcesPage() {
               transition={{ duration: 0.5 }}
             >
               <p className="text-xs text-accent uppercase tracking-widest mb-3">When to use them</p>
-              <h2 className="text-2xl font-bold text-text-primary">Three situations where these help most</h2>
+              <h2 className="text-2xl font-bold text-text-primary">When to run them</h2>
             </motion.div>
 
             <div className="grid md:grid-cols-3 gap-5">
@@ -152,11 +152,12 @@ export default function ResourcesPage() {
               transition={{ duration: 0.5 }}
             >
               <h2 className="text-2xl font-bold text-text-primary mb-4">
-                Once you know your numbers — let&apos;s fix them.
+                Once you know the gap, you can decide what to do about it.
               </h2>
               <p className="text-text-muted mb-8">
-                If your Health Score reveals gaps or your Calculator shows you&apos;re short on conversations,
-                book a call and we&apos;ll talk through what a pipeline system looks like for your business.
+                If either tool shows a problem worth solving, book a 30-minute call.
+                We&apos;ll look at your numbers and talk through whether building a pipeline system
+                makes sense for your business right now.
               </p>
               <a
                 href="https://cal.com/gareth-wray/30min"

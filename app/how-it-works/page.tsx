@@ -59,8 +59,8 @@ export default function HowItWorksPage() {
     <>
       <PageHero
         eyebrow="The model"
-        title="Built in 90 days. Fuelled every month."
-        subtitle="A pipeline system isn't a campaign you run once. It's infrastructure. Here's exactly how we build it, how we keep it running, and why ownership matters."
+        title="How The Pipeline Engine works."
+        subtitle="A lead generation system isn't a campaign. It's infrastructure — built once, run continuously, and owned by you. Here's exactly what gets built, when, and what happens after."
       />
 
       <main className="pb-24">
@@ -134,8 +134,8 @@ export default function HowItWorksPage() {
               <span className="text-xs font-semibold uppercase tracking-widest text-accent block mb-2">Phase 1 — 90 Days</span>
               <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">The Build</h2>
               <p className="text-text-muted max-w-2xl">
-                In 90 days I build your complete pipeline infrastructure from scratch. Every asset is yours from day one.
-                No templates. No junior handoffs. Built to your ICP, your offer, your market.
+                In 90 days I build your complete pipeline infrastructure from scratch — to your ICP, your offer, your market.
+                Every asset is yours from day one. No templates recycled from other clients. No junior handoffs.
               </p>
             </motion.div>
 
@@ -195,8 +195,9 @@ export default function HowItWorksPage() {
               <span className="text-xs font-semibold uppercase tracking-widest text-green block mb-2">Phase 2 — Monthly</span>
               <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">The Fuel</h2>
               <p className="text-text-muted max-w-2xl">
-                An engine without fuel doesn&apos;t run. Phase 2 keeps the system active, the outreach flowing,
-                and the content compounding. Cancel any month — no contracts, no exit penalties.
+                The Build creates the infrastructure. The Fuel keeps it running. Every month: new prospects
+                added, outbound sequences live, content published, ads managed, and a strategy call to align
+                the next 30 days. Cancel any month — no contracts, no exit penalties.
               </p>
             </motion.div>
 
@@ -234,17 +235,17 @@ export default function HowItWorksPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <p className="text-xs text-accent uppercase tracking-widest mb-4">Why ownership matters</p>
+              <p className="text-xs text-accent uppercase tracking-widest mb-4">Ownership</p>
               <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-6">
-                Most agencies take their system with them.
+                Most agencies take their work with them when you stop paying.
                 <br />
-                <span className="text-text-muted">We don&apos;t.</span>
+                <span className="text-text-muted">This works differently.</span>
               </h2>
               <p className="text-text-muted leading-relaxed mb-8 max-w-2xl mx-auto">
-                Every sequence, every asset, every system is yours from the moment it&apos;s built.
-                The work compounds. A pipeline that has been running for 12 months is fundamentally
-                better than one that went live yesterday — and you own every piece of it regardless
-                of what you decide about Phase 2.
+                Every sequence, every asset, every system is yours from the moment it&apos;s built — not
+                when you finish paying, not after a handover period. From day one. A pipeline that has been
+                running for 12 months is better than one that just went live. You own every piece of that
+                compounding value regardless of what you decide about Phase 2.
               </p>
               <a
                 href="https://cal.com/gareth-wray/30min"

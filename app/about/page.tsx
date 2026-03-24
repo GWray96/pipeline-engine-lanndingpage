@@ -16,7 +16,7 @@ const credentials = [
   {
     period: "2019 – 2024",
     title: "Rich & Niche Academy",
-    desc: "Five years of intensive specialist digital marketing training. Inbound, outbound, paid media, conversion optimisation, CRM, email automation. Every channel that makes a B2B lead generation system work.",
+    desc: "Five years studying every channel that goes into a B2B lead generation system — inbound, outbound, paid media, CRM, conversion optimisation, email automation. Applied in real businesses throughout, not just studied in theory.",
   },
   {
     period: "2013 – 2019",
@@ -34,9 +34,9 @@ export default function AboutPage() {
   return (
     <>
       <PageHero
-        eyebrow="The person behind it"
+        eyebrow="Who's behind it"
         title="One person. All the work. No middlemen."
-        subtitle="My name is Gareth Wray. I've spent over a decade inside B2B sales environments and five years learning exactly what makes modern lead generation work. The Pipeline Engine is built from both."
+        subtitle="I'm Gareth Wray. Over a decade in B2B sales, five years in specialist digital marketing. The Pipeline Engine is what I built when I put both together."
       />
 
       <main className="pb-24">
@@ -156,7 +156,7 @@ export default function AboutPage() {
               transition={{ duration: 0.5 }}
             >
               <p className="text-xs text-accent uppercase tracking-widest mb-3">Background</p>
-              <h2 className="text-3xl font-bold text-text-primary">Where this comes from</h2>
+              <h2 className="text-3xl font-bold text-text-primary">The background</h2>
             </motion.div>
 
             <div className="space-y-0">
