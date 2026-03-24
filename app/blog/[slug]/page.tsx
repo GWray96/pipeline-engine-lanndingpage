@@ -1,6 +1,9 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { readFile } from "fs/promises";
+import path from "path";
 import { ArrowLeft, ArrowRight, Clock, Calendar } from "lucide-react";
+import { MDXRemote } from "next-mdx-remote/rsc";
 import { getPost, formatDate, posts } from "@/lib/blog";
 import type { Metadata } from "next";
 
@@ -24,16 +27,66 @@ export function generateStaticParams() {
 
 export const dynamicParams = false;
 
+const mdxComponents = {
+  h1: ({ children }: { children?: React.ReactNode }) => (
+    <h1 className="text-3xl md:text-4xl font-bold text-text-primary mt-10 mb-5 leading-tight">{children}</h1>
+  ),
+  h2: ({ children }: { children?: React.ReactNode }) => (
+    <h2 className="text-2xl font-bold text-text-primary mt-8 mb-4 leading-tight">{children}</h2>
+  ),
+  h3: ({ children }: { children?: React.ReactNode }) => (
+    <h3 className="text-xl font-bold text-text-primary mt-6 mb-3">{children}</h3>
+  ),
+  p: ({ children }: { children?: React.ReactNode }) => (
+    <p className="text-text-muted text-base leading-relaxed mb-5">{children}</p>
+  ),
+  a: ({ href, children }: { href?: string; children?: React.ReactNode }) => (
+    <a
+      href={href}
+      className="text-accent hover:text-text-primary underline underline-offset-2 transition-colors"
+      target={href?.startsWith("http") ? "_blank" : undefined}
+      rel={href?.startsWith("http") ? "noopener noreferrer" : undefined}
+    >
+      {children}
+    </a>
+  ),
+  ul: ({ children }: { children?: React.ReactNode }) => (
+    <ul className="mb-5 space-y-1.5">{children}</ul>
+  ),
+  ol: ({ children }: { children?: React.ReactNode }) => (
+    <ol className="mb-5 list-decimal pl-5 space-y-1.5">{children}</ol>
+  ),
+  li: ({ children }: { children?: React.ReactNode }) => (
+    <li className="text-text-muted text-base leading-relaxed flex items-start gap-2 before:content-['—'] before:text-accent before:flex-shrink-0">
+      {children}
+    </li>
+  ),
+  blockquote: ({ children }: { children?: React.ReactNode }) => (
+    <blockquote className="border-l-4 border-accent pl-5 my-6 italic text-text-muted">{children}</blockquote>
+  ),
+  strong: ({ children }: { children?: React.ReactNode }) => (
+    <strong className="text-text-primary font-semibold">{children}</strong>
+  ),
+  em: ({ children }: { children?: React.ReactNode }) => (
+    <em className="text-text-primary italic">{children}</em>
+  ),
+  hr: () => <hr className="border-border my-10" />,
+  code: ({ children }: { children?: React.ReactNode }) => (
+    <code className="bg-bg-card border border-border text-accent px-1.5 py-0.5 rounded text-sm font-mono">{children}</code>
+  ),
+};
+
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params;
   const post = getPost(slug);
   if (!post) notFound();
 
-  // Dynamic import of the MDX content
-  let PostContent: React.ComponentType;
+  let source: string;
   try {
-    const mod = await import(`@/content/${slug}.mdx`);
-    PostContent = mod.default;
+    source = await readFile(
+      path.join(process.cwd(), "content", `${slug}.mdx`),
+      "utf-8"
+    );
   } catch {
     notFound();
   }
@@ -75,9 +128,7 @@ export default async function BlogPostPage({ params }: Props) {
         <hr className="border-border mb-10" />
 
         {/* MDX Content */}
-        <div className="prose-pipeline">
-          <PostContent />
-        </div>
+        <MDXRemote source={source} components={mdxComponents} />
 
         <hr className="border-border my-12" />
 
@@ -96,8 +147,8 @@ export default async function BlogPostPage({ params }: Props) {
             <div>
               <p className="text-sm font-bold text-text-primary">Gareth Wray</p>
               <p className="text-xs text-text-muted mt-0.5 mb-4">
-                Founder, The Pipeline Engine. 10+ years in B2B sales environments. Done-for-you
-                lead generation systems for B2B SMEs.
+                Founder, The Pipeline Engine. 10+ years in B2B sales environments.
+                Done-for-you lead generation systems for B2B SMEs.
               </p>
               <a
                 href="https://cal.com/gareth-wray/30min"
@@ -112,7 +163,7 @@ export default async function BlogPostPage({ params }: Props) {
           </div>
         </div>
 
-        {/* Navigation to other posts */}
+        {/* More posts */}
         <div className="mt-10">
           <p className="text-xs text-text-muted uppercase tracking-widest mb-4">More from the blog</p>
           <div className="grid md:grid-cols-2 gap-4">
