@@ -105,7 +105,7 @@ export default function CTA() {
 
               <div className="flex flex-col sm:flex-row items-center gap-3">
                 <a
-                  href="https://cal.com/gareth-wray/30min"
+                  href="https://cal.com/gareth-wray/discovery-call"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-accent hover:bg-accent-dim text-white font-medium transition-all hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-accent/25 text-sm"

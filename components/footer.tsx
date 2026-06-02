@@ -27,7 +27,7 @@ export default function Footer() {
                 { label: "Resources", href: "/resources" },
                 { label: "Blog", href: "/blog" },
                 { label: "About", href: "/about" },
-                { label: "Book a call", href: "https://cal.com/gareth-wray/30min" },
+                { label: "Book a call", href: "https://cal.com/gareth-wray/discovery-call" },
               ].map((l) => (
                 <li key={l.label}>
                   {l.href.startsWith("http") ? (
@@ -84,7 +84,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <a
-                  href="https://cal.com/gareth-wray/30min"
+                  href="https://cal.com/gareth-wray/discovery-call"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-xs text-text-muted hover:text-text-primary transition-colors"

@@ -151,7 +151,7 @@ export default async function BlogPostPage({ params }: Props) {
                 Done-for-you lead generation systems for B2B SMEs.
               </p>
               <a
-                href="https://cal.com/gareth-wray/30min"
+                href="https://cal.com/gareth-wray/discovery-call"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 text-xs font-medium text-white bg-accent hover:bg-accent-dim px-4 py-2 rounded-lg transition-colors"

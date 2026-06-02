@@ -131,7 +131,7 @@ export default function AboutPage() {
 
                 <div className="pt-4">
                   <a
-                    href="https://cal.com/gareth-wray/30min"
+                    href="https://cal.com/gareth-wray/discovery-call"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent hover:bg-accent-dim text-white text-sm font-medium transition-colors"

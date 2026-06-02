@@ -160,7 +160,7 @@ export default function ResourcesPage() {
                 makes sense for your business right now.
               </p>
               <a
-                href="https://cal.com/gareth-wray/30min"
+                href="https://cal.com/gareth-wray/discovery-call"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg bg-accent hover:bg-accent-dim text-white font-medium transition-colors"

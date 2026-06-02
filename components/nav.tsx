@@ -62,7 +62,7 @@ export default function Nav() {
 
         {/* CTA */}
         <a
-          href="https://cal.com/gareth-wray/30min"
+          href="https://cal.com/gareth-wray/discovery-call"
           target="_blank"
           rel="noopener noreferrer"
           className="hidden md:inline-flex items-center px-4 py-2 rounded-lg bg-accent hover:bg-accent-dim text-white text-sm font-medium transition-colors"
@@ -98,7 +98,7 @@ export default function Nav() {
               </Link>
             ))}
             <a
-              href="https://cal.com/gareth-wray/30min"
+              href="https://cal.com/gareth-wray/discovery-call"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-accent hover:bg-accent-dim text-white text-sm font-medium transition-colors"
